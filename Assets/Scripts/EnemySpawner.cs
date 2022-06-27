@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
+
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemyTemplate;
+    [SerializeField] private Enemy _enemyTemplate;
     [SerializeField] private float _spawnDelay;
 
     private Coroutine _spawnCoroutine;
