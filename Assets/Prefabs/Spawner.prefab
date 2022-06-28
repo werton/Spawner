@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 6ee68d3dface1f342a46dbea90fdf5bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,4 +96,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyTemplate: {fileID: -7630290594132215396, guid: 5f22b9043e6ff854b882bfca869e8bea, type: 3}
-  _spawnDelay: 5

@@ -1,33 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyTemplate;
-    [SerializeField] private float _spawnDelay;
 
     private Coroutine _spawnCoroutine;
 
-    void Start()
+    public void StartInstantSpawn(float spawnDelay)
     {
-        StartInstantSpawn();
+        _spawnCoroutine = StartCoroutine(SpawnCoroutine(spawnDelay));
     }
 
-    private void StartInstantSpawn()
+    public void StopInstantSpawn()
     {
-        
-        _spawnCoroutine = StartCoroutine(SpawnCoroutine(_spawnDelay));
-    }
-
-    private void StopInstantSpawn()
-    {
-
         StopCoroutine(_spawnCoroutine);
     }
 
-    private void Spawn(Vector3 position)
+    public void Spawn(Vector3 position)
     {
         Instantiate(_enemyTemplate, position, Quaternion.identity);
     }
@@ -39,11 +29,8 @@ public class EnemySpawner : MonoBehaviour
         while (isSpawnStarted == true)
         {
             Spawn(transform.position);
+
             yield return new WaitForSeconds(delay);
-
         }
-
-        isSpawnStarted = false;
-
     }
 }
