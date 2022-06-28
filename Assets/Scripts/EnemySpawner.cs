@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartInstantSpawn(float spawnDelay)
     {
-        _spawnCoroutine = StartCoroutine(SpawnCoroutine(spawnDelay));
+        _spawnCoroutine = StartCoroutine(StartSpawn(spawnDelay));
     }
 
     public void StopInstantSpawn()
@@ -17,18 +17,18 @@ public class EnemySpawner : MonoBehaviour
         StopCoroutine(_spawnCoroutine);
     }
 
-    public void Spawn(Vector3 position)
+    public void SpawnInPosition(Vector3 position)
     {
         Instantiate(_enemyTemplate, position, Quaternion.identity);
     }
 
-    private IEnumerator SpawnCoroutine(float delay)
+    private IEnumerator StartSpawn(float delay)
     {
         bool isSpawnStarted = true;
 
         while (isSpawnStarted == true)
         {
-            Spawn(transform.position);
+            SpawnInPosition(transform.position);
 
             yield return new WaitForSeconds(delay);
         }

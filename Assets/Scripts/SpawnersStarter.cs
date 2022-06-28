@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnersController : MonoBehaviour
+public class SpawnersStarter: MonoBehaviour
 {
     [SerializeField] private float _spawnerStartDelay;
 
@@ -14,10 +14,10 @@ public class SpawnersController : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnCoroutine(_spawnerStartDelay));
+        StartCoroutine(StartAllSpawners(_spawnerStartDelay));
     }
 
-    private IEnumerator SpawnCoroutine(float delay)
+    private IEnumerator StartAllSpawners(float delay)
     {
         foreach (EnemySpawner spawner in _enemySpawners)
         {
